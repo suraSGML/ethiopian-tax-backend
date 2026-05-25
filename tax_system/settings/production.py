@@ -1,12 +1,13 @@
 from .base import *
+import os
 
 DEBUG = False
 
 # ─── Allowed Hosts for Production ───────────────────────────────────────────────
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='ethiopian-tax-backend.onrender.com').split(',')
-# Ensure Render domain is always allowed
-if 'ethiopian-tax-backend.onrender.com' not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append('ethiopian-tax-backend.onrender.com')
+ALLOWED_HOSTS = ['ethiopian-tax-backend.onrender.com']
+# Also include from environment variable if set
+if 'ALLOWED_HOSTS' in os.environ:
+    ALLOWED_HOSTS.extend(os.environ['ALLOWED_HOSTS'].split(','))
 
 # ─── Security Headers ─────────────────────────────────────────────────────────
 SECURE_BROWSER_XSS_FILTER = True
