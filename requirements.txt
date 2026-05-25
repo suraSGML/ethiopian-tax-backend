@@ -6,7 +6,7 @@ django-cors-headers==4.4.0
 
 # ─── Database (Supabase = PostgreSQL) ─────────────────────────────────────────
 # psycopg3 binary - pre-built wheels, no pg_config needed
-psycopg[binary]==3.2.3
+psycopg[binary]==3.3.4
 
 # ─── Utilities ────────────────────────────────────────────────────────────────
 python-decouple==3.8
