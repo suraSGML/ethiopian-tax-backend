@@ -13,6 +13,16 @@ ALLOWED_HOSTS = [
 if 'ALLOWED_HOSTS' in os.environ:
     ALLOWED_HOSTS.extend(os.environ['ALLOWED_HOSTS'].split(','))
 
+# ─── CORS for Production ─────────────────────────────────────────────────────────
+CORS_ALLOWED_ORIGINS = [
+    "https://ethiopian-tax-system.vercel.app",
+    "https://ethiopian-tax-frontend.vercel.app",
+]
+# Also include from environment variable if set
+if 'CORS_ALLOWED_ORIGINS' in os.environ:
+    CORS_ALLOWED_ORIGINS.extend(os.environ['CORS_ALLOWED_ORIGINS'].split(','))
+CORS_ALLOW_CREDENTIALS = True
+
 # ─── Security Headers ─────────────────────────────────────────────────────────
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
