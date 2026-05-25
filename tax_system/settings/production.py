@@ -4,7 +4,11 @@ import os
 DEBUG = False
 
 # ─── Allowed Hosts for Production ───────────────────────────────────────────────
-ALLOWED_HOSTS = ['ethiopian-tax-backend.onrender.com']
+ALLOWED_HOSTS = [
+    "ethiopian-tax-backend.onrender.com",
+    "127.0.0.1",
+    "localhost"
+]
 # Also include from environment variable if set
 if 'ALLOWED_HOSTS' in os.environ:
     ALLOWED_HOSTS.extend(os.environ['ALLOWED_HOSTS'].split(','))
