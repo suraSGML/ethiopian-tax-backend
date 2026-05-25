@@ -3,7 +3,7 @@ services:
     name: ethiopian-tax-backend
     env: python
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
-    startCommand: gunicorn tax_system.wsgi:application
+    startCommand: DJANGO_SETTINGS_MODULE=tax_system.settings.production gunicorn tax_system.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: tax_system.settings.production
