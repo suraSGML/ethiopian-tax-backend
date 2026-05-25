@@ -2,6 +2,9 @@ from .base import *
 
 DEBUG = False
 
+# ─── Allowed Hosts for Production ───────────────────────────────────────────────
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='ethiopian-tax-backend.onrender.com').split(',')
+
 # ─── Security Headers ─────────────────────────────────────────────────────────
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
