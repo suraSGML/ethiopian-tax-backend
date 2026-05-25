@@ -4,6 +4,9 @@ DEBUG = False
 
 # ─── Allowed Hosts for Production ───────────────────────────────────────────────
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='ethiopian-tax-backend.onrender.com').split(',')
+# Ensure Render domain is always allowed
+if 'ethiopian-tax-backend.onrender.com' not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append('ethiopian-tax-backend.onrender.com')
 
 # ─── Security Headers ─────────────────────────────────────────────────────────
 SECURE_BROWSER_XSS_FILTER = True
