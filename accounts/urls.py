@@ -22,5 +22,6 @@ urlpatterns = [
     path('2fa/setup/', views.TwoFactorSetupView.as_view(), name='2fa-setup'),
     path('2fa/verify/', views.TwoFactorVerifyView.as_view(), name='2fa-verify'),
     path('2fa/disable/', views.TwoFactorDisableView.as_view(), name='2fa-disable'),
+    path('seed-demo/', views.SeedDataView.as_view(), name='seed-demo'),
     path('', include(router.urls)),
 ]

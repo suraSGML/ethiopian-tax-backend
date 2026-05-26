@@ -330,3 +330,15 @@ class TwoFactorDisableView(generics.GenericAPIView):
         two_fa.save()
         
         return Response({'message': '2FA disabled successfully.'})
+
+
+class SeedDataView(generics.GenericAPIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        from django.core.management import call_command
+        try:
+            call_command('seed_data')
+            return Response({'message': 'Demo users seeded successfully.'})
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
