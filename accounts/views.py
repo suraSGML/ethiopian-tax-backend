@@ -7,6 +7,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import update_session_auth_hash
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from drf_spectacular.utils import extend_schema, extend_schema_view
 
 from .models import User, TaxProfile, PasswordResetToken, EmailVerification, TwoFactorAuth
@@ -21,6 +23,7 @@ from .utils import generate_reset_token, get_token_expiry
 from notifications.tasks import send_welcome_email, send_password_reset_email, send_email_verification
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(generics.CreateAPIView):
     serializer_class = UserRegistrationSerializer
     permission_classes = [AllowAny]
@@ -56,6 +59,7 @@ class RegisterView(generics.CreateAPIView):
         }, status=status.HTTP_201_CREATED)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class LoginView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
