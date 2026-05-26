@@ -15,7 +15,7 @@ if 'ALLOWED_HOSTS' in os.environ:
 
 # ─── CORS for Production ─────────────────────────────────────────────────────────
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = False
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
     'content-type',
     'authorization',
