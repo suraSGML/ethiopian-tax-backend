@@ -45,6 +45,12 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_COOKIE_SAMESITE = 'Lax'
 X_FRAME_OPTIONS = 'DENY'
 
+# Disable CSRF for API endpoints (JWT authentication used instead)
+CSRF_TRUSTED_ORIGINS = [
+    "https://ethiopian-tax-system.vercel.app",
+    "https://ethiopian-tax-frontend.vercel.app",
+]
+
 # ─── Database Connection Pooling (Production) ─────────────────────────────────
 DATABASES['default']['OPTIONS'] = {
     'sslmode': 'require',
