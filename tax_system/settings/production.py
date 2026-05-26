@@ -22,6 +22,20 @@ CORS_ALLOWED_ORIGINS = [
 if 'CORS_ALLOWED_ORIGINS' in os.environ:
     CORS_ALLOWED_ORIGINS.extend(os.environ['CORS_ALLOWED_ORIGINS'].split(','))
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+    'x-csrftoken',
+]
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS',
+]
 
 # ─── Security Headers ─────────────────────────────────────────────────────────
 SECURE_BROWSER_XSS_FILTER = True
